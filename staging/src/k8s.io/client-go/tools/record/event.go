@@ -292,6 +292,7 @@ func (e *eventBroadcasterImpl) StartStructuredLogging(verbosity klog.Level) watc
 	return e.StartEventWatcher(
 		func(e *v1.Event) {
 			klog.V(verbosity).InfoS("Event occurred", "object", klog.KRef(e.InvolvedObject.Namespace, e.InvolvedObject.Name), "fieldPath", e.InvolvedObject.fieldPath, "kind", e.InvolvedObject.Kind, "apiVersion", e.InvolvedObject.APIVersion, "type", e.Type, "reason", e.Reason, "message", e.Message)
+
 		})
 }
 
